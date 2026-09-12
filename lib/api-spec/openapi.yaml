@@ -10,6 +10,8 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: discovery
+    description: Public discovery and homepage data
 paths:
   /healthz:
     get:
@@ -24,6 +26,111 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /languages:
+    get:
+      operationId: listLanguages
+      tags: [discovery]
+      summary: List active learning languages
+      responses:
+        "200":
+          description: Available languages
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Language"
+  /teachers:
+    get:
+      operationId: listTeachers
+      tags: [discovery]
+      summary: List approved teachers
+      parameters:
+        - name: language
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: serviceType
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [CONVERSATION_PARTNER, PROFESSIONAL_TEACHER]
+        - name: online
+          in: query
+          required: false
+          schema:
+            type: boolean
+      responses:
+        "200":
+          description: Matching teachers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Teacher"
+  /teachers/{teacherId}:
+    get:
+      operationId: getTeacher
+      tags: [discovery]
+      summary: Get a teacher profile
+      parameters:
+        - name: teacherId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Teacher profile
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Teacher"
+        "404":
+          description: Teacher not found
+  /packages:
+    get:
+      operationId: listPackages
+      tags: [discovery]
+      summary: List active minute packages
+      responses:
+        "200":
+          description: Minute packages
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/MinutePackage"
+  /podcasts:
+    get:
+      operationId: listPodcasts
+      tags: [discovery]
+      summary: List featured podcasts
+      responses:
+        "200":
+          description: Featured podcasts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Podcast"
+  /overview:
+    get:
+      operationId: getOverview
+      tags: [discovery]
+      summary: Get homepage overview statistics
+      responses:
+        "200":
+          description: Homepage overview
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Overview"
 components:
   schemas:
     HealthStatus:
@@ -33,4 +140,155 @@ components:
           type: string
       required:
         - status
+    Language:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        nativeName:
+          type: string
+        code:
+          type: string
+        learners:
+          type: integer
+        accent:
+          type: string
+      required: [id, name, nativeName, code, learners, accent]
+    Teacher:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        avatar:
+          type: string
+        headline:
+          type: string
+        bio:
+          type: string
+        languages:
+          type: array
+          items:
+            type: string
+        serviceType:
+          type: string
+          enum: [CONVERSATION_PARTNER, PROFESSIONAL_TEACHER]
+        serviceLabel:
+          type: string
+        rating:
+          type: number
+        reviewCount:
+          type: integer
+        students:
+          type: integer
+        online:
+          type: boolean
+        pricePerMinute:
+          type: integer
+        currency:
+          type: string
+        experienceYears:
+          type: integer
+        specialties:
+          type: array
+          items:
+            type: string
+        nextAvailable:
+          type: string
+        accent:
+          type: string
+      required:
+        - id
+        - name
+        - avatar
+        - headline
+        - bio
+        - languages
+        - serviceType
+        - serviceLabel
+        - rating
+        - reviewCount
+        - students
+        - online
+        - pricePerMinute
+        - currency
+        - experienceYears
+        - specialties
+        - nextAvailable
+        - accent
+    MinutePackage:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        minutes:
+          type: integer
+        price:
+          type: integer
+        currency:
+          type: string
+        popular:
+          type: boolean
+        description:
+          type: string
+      required: [id, name, minutes, price, currency, popular, description]
+    Podcast:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        language:
+          type: string
+        level:
+          type: string
+        duration:
+          type: string
+        xp:
+          type: integer
+        cover:
+          type: string
+        accent:
+          type: string
+      required: [id, title, description, language, level, duration, xp, cover, accent]
+    Overview:
+      type: object
+      properties:
+        learners:
+          type: integer
+        teachers:
+          type: integer
+        lessons:
+          type: integer
+        countries:
+          type: integer
+        rating:
+          type: number
+        testimonials:
+          type: array
+          items:
+            $ref: "#/components/schemas/Testimonial"
+      required: [learners, teachers, lessons, countries, rating, testimonials]
+    Testimonial:
+      type: object
+      properties:
+        quote:
+          type: string
+        name:
+          type: string
+        role:
+          type: string
+        avatar:
+          type: string
+        rating:
+          type: integer
+      required: [quote, name, role, avatar, rating]
 

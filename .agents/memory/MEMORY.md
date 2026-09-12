@@ -1,0 +1,1 @@
+- [Myna auth transport](myna-auth.md) — Browser authentication uses Clerk session cookies; keep web API calls same-origin and token-free.

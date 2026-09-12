@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Myna Lingo"
+description = "A friendly Arabic-English language learning platform that helps students find teachers, practice speaking, book lessons, and build momentum through real interaction."
+version = "1.0.0"
+id = "artifacts/myna-lingo"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24349
+
+[services.development]
+run = "pnpm --filter @workspace/myna-lingo run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/myna-lingo", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/myna-lingo/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24349"
+BASE_PATH = "/"

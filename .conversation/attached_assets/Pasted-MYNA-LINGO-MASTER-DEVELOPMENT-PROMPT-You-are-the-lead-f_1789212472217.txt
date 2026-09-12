@@ -1,0 +1,1504 @@
+MYNA LINGO — MASTER DEVELOPMENT PROMPT
+You are the lead full-stack developer responsible for transforming my existing project into a polished, functional, scalable MVP called MYNA LINGO.
+
+IMPORTANT:
+I already have an existing codebase.
+
+DO NOT rebuild the project from scratch.
+DO NOT delete the existing project and replace it with a new template.
+DO NOT remove working features without a clear reason.
+
+First inspect the existing project carefully, understand what has already been built, then improve and extend it.
+
+==================================================
+1. PROJECT OBJECTIVE
+==================================================
+
+Build MYNA LINGO, a modern language-learning platform where users can learn languages through:
+
+- Professional teachers
+- Conversation partners
+- 1-to-1 live lessons
+- Instant calls
+- Booked lessons
+- Children's group classes
+- Podcasts
+- Vocabulary
+- Learning activities
+- XP and levels
+- Parent accounts
+- Teacher applications
+- Payments
+- Notifications
+- Admin management
+- Analytics
+
+The final product must feel like a real commercial EdTech platform, not a static website or visual demo.
+
+The existing project is the foundation.
+Your job is to audit it, improve it, fix it, and complete it.
+
+==================================================
+2. FIRST: AUDIT THE EXISTING PROJECT
+==================================================
+
+Before making major changes, inspect:
+
+- package.json
+- Next.js configuration
+- app routes
+- components
+- layouts
+- styles
+- public assets
+- authentication
+- API routes
+- Prisma schema
+- database utilities
+- existing dashboards
+- existing teacher pages
+- existing student pages
+- existing courses
+- existing forms
+- existing responsive behavior
+
+Determine:
+
+1. What already works
+2. What is incomplete
+3. What is broken
+4. What should be reused
+5. What should be refactored
+6. What functionality is still missing
+
+Do not duplicate existing functionality.
+
+Do not create two different authentication systems, pricing systems, teacher systems, or dashboard systems.
+
+Maintain ONE source of truth.
+
+==================================================
+3. TECHNOLOGY STACK
+==================================================
+
+Use the existing architecture whenever possible.
+
+Target stack:
+
+Frontend:
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+
+Backend:
+- Next.js server-side/API architecture
+
+Database:
+- PostgreSQL
+
+ORM:
+- Prisma
+
+Authentication:
+- Secure authentication
+- Email/password
+- Google authentication when configured
+- Role-based authorization
+
+Roles:
+
+STUDENT
+PARENT
+TEACHER
+ADMIN
+
+Do not introduce unnecessary frameworks.
+
+Do not replace the existing stack simply for the sake of rewriting it.
+
+==================================================
+4. BRAND IDENTITY
+==================================================
+
+The supplied Myna Lingo reference images define the visual direction.
+
+The platform should feel:
+
+- Friendly
+- Educational
+- Modern
+- Playful
+- Professional
+- Trustworthy
+- Welcoming
+
+Main visual language:
+
+- Warm bright yellow
+- Orange
+- Dark charcoal/black
+- White
+- Warm cream
+- Rounded cards
+- Rounded buttons
+- Soft shadows
+- Friendly illustrations
+- Clean spacing
+
+Avoid:
+
+- Generic corporate SaaS design
+- Excessive gradients
+- Neon colors
+- Excessive glassmorphism
+- Heavy animations
+- Overly technical interfaces
+- Generic Bootstrap-looking layouts
+
+==================================================
+5. MYNA LINGO MASCOT
+==================================================
+
+Use the existing Myna Lingo bird mascot/logo from the project assets.
+
+Do not replace it with a generic icon.
+
+Use the mascot consistently in:
+
+- Navbar
+- Footer
+- Login
+- Register
+- Empty states
+- Loading states
+- Success states
+- Error states
+- Marketing sections
+- Learning sections
+
+If the real logo asset already exists, use the real asset.
+
+==================================================
+6. DESIGN SYSTEM
+==================================================
+
+Create a centralized design system.
+
+Brand colors should be reusable.
+
+Primary:
+Myna Yellow
+
+Secondary:
+Myna Orange
+
+Dark:
+Charcoal / near-black
+
+Background:
+Warm white / cream
+
+Cards:
+White
+
+Use approximately:
+
+- 12–24px rounded corners
+- Soft shadows
+- Clean borders
+- Strong visual hierarchy
+- Large readable headings
+- Clear CTA buttons
+
+Yellow should establish the brand identity.
+
+Orange should emphasize important actions.
+
+Do not make the entire website yellow.
+
+==================================================
+7. ARABIC + ENGLISH
+==================================================
+
+The platform must support:
+
+Arabic
+English
+
+Arabic = RTL
+English = LTR
+
+RTL must change the actual interface layout.
+
+When Arabic is selected:
+
+- Navbar adapts
+- Sidebar adapts
+- Forms adapt
+- Cards adapt
+- Text alignment adapts
+- Icons remain logically positioned
+- Buttons remain natural
+- Mobile navigation adapts
+
+Use a suitable Arabic font such as:
+
+Cairo
+Tajawal
+IBM Plex Sans Arabic
+
+Do not simply translate the text while leaving the layout in LTR.
+
+==================================================
+8. RESPONSIVE DESIGN
+==================================================
+
+The platform must work correctly on:
+
+- Desktop
+- Laptop
+- Tablet
+- Android
+- iPhone
+
+Mobile must be treated as a first-class experience.
+
+Do not simply shrink desktop layouts.
+
+Mobile should include:
+
+- Compact navigation
+- Hamburger menu
+- Touch-friendly controls
+- Large CTA buttons
+- Vertical cards
+- Mobile dashboard layouts
+- Bottom navigation where appropriate
+- Responsive video calls
+- Correct RTL behavior
+
+==================================================
+9. HOMEPAGE
+==================================================
+
+Improve the existing homepage rather than replacing it unnecessarily.
+
+Homepage sections:
+
+1. Navbar
+2. Hero
+3. Popular Languages
+4. How It Works
+5. Teachers
+6. Children
+7. Podcasts
+8. Statistics
+9. Testimonials
+10. CTA
+11. Footer
+
+Hero message example:
+
+Arabic:
+"ابدأ رحلة تعلم اللغات اليوم"
+
+English:
+"Start Your Language Learning Journey Today"
+
+Hero should communicate:
+
+- Learn languages
+- Practice speaking
+- Meet teachers
+- Improve through real interaction
+
+Primary actions:
+
+"تسجيل كطالب"
+
+"التسجيل كأستاذ"
+
+Use rounded orange CTA buttons.
+
+==================================================
+10. POPULAR LANGUAGES
+==================================================
+
+Languages must come from the database.
+
+Example:
+
+English
+French
+Spanish
+German
+Italian
+Arabic
+
+Do NOT permanently hardcode languages.
+
+Admin must be able to:
+
+- Add
+- Edit
+- Disable
+
+A disabled language should not appear in user-facing selection where inappropriate.
+
+==================================================
+11. TEACHER TYPES
+==================================================
+
+There are two service types.
+
+CONVERSATION PARTNER
+
+Purpose:
+
+- Conversation
+- Speaking practice
+- Fluency practice
+
+PROFESSIONAL TEACHER
+
+Purpose:
+
+- Grammar
+- Vocabulary
+- Speaking
+- Writing
+- Reading
+- Pronunciation
+- Structured lessons
+- Children's lessons
+
+These must be separate service types in the database.
+
+==================================================
+12. TEACHER SEARCH
+==================================================
+
+Create or improve:
+
+/find-teacher
+
+Filters:
+
+- Language
+- Teacher type
+- Online status
+- Age group
+- Rating
+
+Teacher cards should show:
+
+- Photo
+- Name
+- Type
+- Languages
+- Rating
+- Online status
+- Price
+- Call Now
+- Book Lesson
+
+==================================================
+13. TEACHER PROFILE
+==================================================
+
+Create or improve:
+
+/teachers/[id]
+
+Display:
+
+- Profile photo
+- Name
+- Teacher type
+- Languages
+- Bio
+- Experience
+- Rating
+- Age groups
+- Availability
+- Introduction video
+- Call Now
+- Book Lesson
+
+Teachers must NOT choose their own student-facing price.
+
+==================================================
+14. STUDENT PRICING RULE
+==================================================
+
+THIS IS A CRITICAL BUSINESS RULE.
+
+Teachers offering the same service type must have the same student-facing price.
+
+Example only:
+
+Conversation Partner:
+100 DA/min
+
+Professional Teacher:
+150 DA/min
+
+These values are examples.
+
+The Admin determines the real prices.
+
+The system must calculate student price from:
+
+SERVICE TYPE
+
+NOT:
+
+INDIVIDUAL TEACHER
+
+Do not allow teachers to change this price.
+
+==================================================
+15. STUDENT MINUTE SYSTEM
+==================================================
+
+Students do NOT have a normal monetary wallet.
+
+Students have a TIME BALANCE.
+
+Store time internally in:
+
+SECONDS
+
+Example:
+
+56 minutes = 3360 seconds
+
+Display:
+
+56:00
+
+During a call:
+
+56:00
+55:59
+55:58
+...
+
+Time must be deducted by the actual duration.
+
+Example:
+
+Call duration:
+
+2 minutes 37 seconds
+
+Deduct:
+
+157 seconds
+
+NOT 3 minutes.
+
+The server must be authoritative.
+
+Never trust frontend-only timers.
+
+==================================================
+16. STUDENT PACKAGES
+==================================================
+
+There are exactly 3 configurable packages.
+
+Example only:
+
+Package 1:
+100 DA → 56 minutes
+
+Package 2:
+500 DA → 300 minutes
+
+Package 3:
+1000 DA → 700 minutes
+
+These are placeholders only.
+
+Admin controls:
+
+- Price
+- Minutes
+- Active/inactive status
+
+Do not hardcode production values.
+
+==================================================
+17. STUDENT MINUTE LEDGER
+==================================================
+
+Do not maintain only a single mutable balance.
+
+Create a ledger/history system.
+
+Transaction types:
+
+PACKAGE_PURCHASE
+FREE_TRIAL
+CALL_USAGE
+ADMIN_ADJUSTMENT
+REFUND
+
+Example:
+
++3360 seconds
+-157 seconds
+
+Remaining:
+
+3203 seconds
+
+Every balance change must be auditable.
+
+==================================================
+18. TEACHER ONLINE STATUS
+==================================================
+
+Teacher can:
+
+GO ONLINE
+GO OFFLINE
+
+Online means the teacher is available for students.
+
+IMPORTANT:
+
+ONLINE TIME != TEACHING TIME
+
+Example:
+
+Teacher online for 3 hours.
+
+Actual lessons:
+
+1 hour 20 minutes.
+
+Teaching time:
+
+1h 20m
+
+Not 3 hours.
+
+==================================================
+19. VIDEO CALLS
+==================================================
+
+Use Agora for live video/audio calls.
+
+Do not build video infrastructure from scratch.
+
+Support:
+
+- Call Now
+- Incoming Call
+- Accept
+- Decline
+- Camera
+- Microphone
+- Speaker
+- End Call
+- Remaining time
+
+Create server-backed call sessions.
+
+Store:
+
+- Student
+- Teacher
+- Service type
+- Start time
+- End time
+- Actual duration
+- Agora channel/session identifier
+
+When a call ends:
+
+1. Calculate actual server-side duration.
+2. Deduct exact seconds from student balance.
+3. Add exact seconds to teacher teaching-time ledger.
+4. Store complete call history.
+
+Never trust:
+
+- Frontend timer
+- Browser time
+- User-submitted duration
+
+==================================================
+20. TEACHER TEACHING TIME
+==================================================
+
+Maintain a separate teaching-time ledger.
+
+Examples:
+
+LESSON_STARTED
+LESSON_COMPLETED
+TEACHING_TIME_ADDED
+PAYMENT_REQUESTED
+TIME_FROZEN
+PAYMENT_COMPLETED
+ADMIN_ADJUSTMENT
+
+Teacher dashboard should display:
+
+- This week
+- This month
+- Current teaching time
+- Frozen/pending time
+
+==================================================
+21. TEACHER PAYMENT SYSTEM
+==================================================
+
+Teacher section:
+
+"My Pay / أجرتي"
+
+Teacher can request payment.
+
+Example:
+
+Current:
+5h 20m
+
+Pending:
+8h 15m
+
+After requesting payment:
+
+8h 15m becomes:
+
+FROZEN / PENDING PAYMENT
+
+New teaching time continues separately.
+
+Example:
+
+Frozen:
+8h 15m
+
+Current:
+1h 30m
+
+Payment statuses:
+
+PENDING
+APPROVED
+PAID
+
+Maintain complete payment history.
+
+Internal teacher compensation is private.
+
+==================================================
+22. TEACHER APPLICATION SYSTEM
+==================================================
+
+A teacher must NOT become public immediately after registration.
+
+Teacher application contains:
+
+- Personal information
+- Profile photo
+- Languages
+- Experience
+- Description
+- Certificates
+- Certificate files
+- Introduction video
+
+Statuses:
+
+PENDING_REVIEW
+APPROVED
+REJECTED
+SUSPENDED
+
+Admin actions:
+
+APPROVE
+REJECT
+SUSPEND
+
+Only approved teachers should appear publicly.
+
+==================================================
+23. PARENT SYSTEM
+==================================================
+
+Parents can:
+
+- Create children
+- Manage children
+- Purchase packages
+- Purchase podcasts
+- Make bookings
+- View child progress
+
+Children cannot perform financial operations.
+
+==================================================
+24. CHILD AGE GROUPS
+==================================================
+
+Exactly two groups:
+
+6–11 years
+
+12–14 years
+
+The backend must calculate age from date of birth.
+
+Do not rely on a manually selected age category.
+
+Rules:
+
+8-year-old → only 6–11
+
+13-year-old → only 12–14
+
+Backend validation is mandatory.
+
+==================================================
+25. BOOKING SYSTEM
+==================================================
+
+Student booking flow:
+
+1. Select teacher
+2. Select language
+3. Select lesson type
+4. Select date
+5. Select available time
+6. Confirm
+
+Statuses:
+
+UPCOMING
+COMPLETED
+CANCELLED
+
+Prevent double booking server-side.
+
+==================================================
+26. PODCAST SYSTEM
+==================================================
+
+Podcasts are separate from live-call minutes.
+
+Podcast purchases do NOT consume call minutes.
+
+Each podcast can contain:
+
+- Title
+- Description
+- Cover
+- Audio
+- Transcript
+- Language
+- Level
+- Category
+- Duration
+- Vocabulary
+- Questions
+- XP reward
+- Price
+
+Routes:
+
+/podcasts
+
+/podcasts/[id]
+
+==================================================
+27. PODCAST PLAYER
+==================================================
+
+Support:
+
+- Play
+- Pause
+- Seek
+- Progress bar
+- Current time
+- Duration
+- +10 seconds
+- -10 seconds
+- Playback speed
+- Resume position
+
+Playback:
+
+0.75x
+1x
+1.25x
+1.5x
+
+Store progress server-side.
+
+==================================================
+28. PODCAST LEARNING
+==================================================
+
+Podcast learning includes:
+
+Transcript
+Vocabulary
+Questions
+XP
+
+Vocabulary:
+
+- Word
+- Meaning
+- Translation
+- Example
+- Pronunciation
+
+Questions:
+
+- Multiple choice
+- Correct answer tracking
+- Completion
+- XP reward
+
+==================================================
+29. XP + LEVELS
+==================================================
+
+XP is ONLY for progression.
+
+XP is NOT money.
+
+XP cannot be converted into money.
+
+Display:
+
+XP
+Level
+Progress
+
+Possible XP sources:
+
+- Podcast completion
+- Vocabulary
+- Activities
+- Speaking practice
+
+Admin controls XP rewards.
+
+==================================================
+30. LEARNING ACTIVITIES
+==================================================
+
+Implement learning activities such as:
+
+1. Icebreaker
+2. Visual Expression
+3. Debate
+4. Shadowing
+
+Later:
+
+- Personal Topics
+- Short Stories
+- Vocabulary Challenge
+
+Activities should be managed through the database.
+
+Do not hardcode all learning content inside components.
+
+==================================================
+31. RATINGS
+==================================================
+
+After an eligible completed lesson:
+
+Student can rate teacher.
+
+Rating:
+
+1–10
+
+Optional comment.
+
+Display:
+
+Average rating
+
+Example:
+
+9.6 / 10
+
+Only eligible completed sessions can be rated.
+
+==================================================
+32. ADMIN PANEL
+==================================================
+
+Create a professional admin panel.
+
+Routes:
+
+/admin
+/admin/users
+/admin/teachers
+/admin/applications
+/admin/languages
+/admin/packages
+/admin/pricing
+/admin/teacher-rates
+/admin/payments
+/admin/teacher-payments
+/admin/podcasts
+/admin/content
+/admin/groups
+/admin/reviews
+/admin/notifications
+/admin/analytics
+/admin/settings
+
+Admin can manage:
+
+Users
+Teachers
+Applications
+Languages
+Packages
+Pricing
+Teacher rates
+Payments
+Podcasts
+Learning content
+Groups
+Reviews
+Notifications
+Analytics
+
+==================================================
+33. ADMIN DASHBOARD
+==================================================
+
+Display:
+
+- Students
+- Parents
+- Teachers
+- Online teachers
+- Calls
+- Minutes used
+- Podcast sales
+- Revenue
+
+Use useful charts and clear cards.
+
+==================================================
+34. ADMIN PRICING
+==================================================
+
+Admin controls all business prices.
+
+Examples:
+
+Conversation price
+Professional teacher price
+Group 6–11 price
+Group 12–14 price
+Booking price
+Podcast price
+
+Never hardcode business prices in frontend code.
+
+==================================================
+35. ADMIN TEACHER RATES
+==================================================
+
+Admin may define internal compensation for each teacher.
+
+Example:
+
+Teacher A:
+800 DA/hour
+
+Teacher B:
+600 DA/hour
+
+This is PRIVATE internal information.
+
+Do not expose internal rates to students.
+
+==================================================
+36. PAYMENTS
+==================================================
+
+Payment logic must be server-side.
+
+Support architecture for:
+
+- Student packages
+- Podcasts
+
+Payment records should include:
+
+- User
+- Amount
+- Currency
+- Product
+- Transaction/reference
+- Status
+- Timestamp
+
+Statuses:
+
+PENDING
+SUCCESS
+FAILED
+CANCELLED
+REFUNDED
+
+Keep architecture ready for Algerian payment providers such as Chargily.
+
+Development/test payments may use a mock mode, but production payment logic must be real and verified server-side.
+
+==================================================
+37. NOTIFICATIONS
+==================================================
+
+Student:
+
+- Payment successful
+- Minutes added
+- Booking confirmed
+- Booking cancelled
+- Announcements
+
+Teacher:
+
+- New call
+- New booking
+- Application approved
+- Application rejected
+- Payment request status
+- Admin message
+
+Parent:
+
+- Child booking
+- Lesson completed
+- Child progress
+- Payment confirmation
+
+Admin:
+
+- New teacher application
+- Payment events
+- Teacher payment request
+- System alerts
+
+==================================================
+38. DATABASE
+==================================================
+
+Use PostgreSQL + Prisma.
+
+Inspect the current Prisma schema before changing it.
+
+Create a normalized schema.
+
+Potential models include:
+
+User
+Parent
+Student
+ChildProfile
+Teacher
+TeacherApplication
+Language
+TeacherLanguage
+ServiceType
+PricingRule
+Package
+PackagePurchase
+StudentMinuteBalance
+MinuteLedger
+Payment
+Call
+CallParticipant
+Booking
+GroupClass
+GroupParticipant
+AgeCategory
+TeachingTimeLedger
+TeacherRate
+TeacherPaymentRequest
+TeacherPayment
+XPTransaction
+Level
+LearningActivity
+ActivityQuestion
+Podcast
+PodcastPurchase
+PodcastTranscript
+PodcastVocabulary
+PodcastQuestion
+PodcastProgress
+Rating
+Notification
+Conversation
+Message
+AgoraSession
+DeviceSignal
+AuditLog
+
+Only create models that are actually necessary.
+
+==================================================
+39. SECURITY
+==================================================
+
+Implement:
+
+- Secure authentication
+- Password hashing
+- Role-based access control
+- Server-side authorization
+- API validation
+- Rate limiting where appropriate
+- Payment verification
+- Secure uploads
+- File type validation
+- File size limits
+- Audit logs
+
+Never expose:
+
+- Database credentials
+- API secrets
+- Payment secrets
+- Agora secrets
+- Teacher internal rates
+- Private teacher certificates
+- Admin-only functionality
+
+Security must be enforced server-side.
+
+==================================================
+40. IMPORTANT DATA RULE
+==================================================
+
+Never use localStorage as the source of truth for:
+
+- User roles
+- Minutes
+- Payments
+- XP
+- Bookings
+- Teacher teaching time
+- Teacher approval
+
+Critical information must come from the server/database.
+
+==================================================
+41. REUSABLE COMPONENTS
+==================================================
+
+Create or improve reusable components:
+
+Navbar
+Sidebar
+MobileNavigation
+TeacherCard
+TeacherProfile
+PackageCard
+PodcastCard
+Rating
+StatusBadge
+Timer
+VideoCallControls
+BookingCalendar
+DashboardCard
+ProgressBar
+XPBadge
+LanguageCard
+ActivityCard
+AudioPlayer
+VocabularyCard
+NotificationPanel
+DataTable
+Modal
+Form
+Toast
+EmptyState
+LoadingState
+ErrorState
+
+Do not duplicate components unnecessarily.
+
+==================================================
+42. EMPTY / ERROR / LOADING STATES
+==================================================
+
+Use the Myna mascot.
+
+Empty example:
+
+"No upcoming lessons yet!"
+
+CTA:
+
+"Find a Teacher"
+
+Error example:
+
+"Oops! Myna couldn't complete that action."
+
+CTA:
+
+"Try Again"
+
+Loading states should be simple and lightweight.
+
+==================================================
+43. PERFORMANCE
+==================================================
+
+Optimize:
+
+- Images
+- Audio
+- Video
+- API calls
+- Database queries
+- Client rendering
+
+Use lazy loading where appropriate.
+
+Do not load large media unnecessarily.
+
+==================================================
+44. ACCESSIBILITY
+==================================================
+
+Support:
+
+- Keyboard navigation
+- Focus states
+- ARIA labels
+- Accessible forms
+- Good contrast
+- Screen-reader-friendly structure
+
+==================================================
+45. MVP PRIORITY
+==================================================
+
+DO NOT TRY TO BUILD EVERYTHING AT ONCE.
+
+Priority order:
+
+PHASE 1:
+Branding
+Homepage
+Authentication
+Roles
+Responsive UI
+
+PHASE 2:
+Student dashboard
+Teacher dashboard
+Languages
+Teacher search
+Teacher profiles
+Packages
+Minutes
+
+PHASE 3:
+Teacher application
+Admin approval
+Availability
+Online/offline
+
+PHASE 4:
+Booking system
+
+PHASE 5:
+Agora calls
+Server-side timing
+Minute deduction
+Teacher teaching time
+
+PHASE 6:
+Parent + children
+Age restrictions
+Group classes
+
+PHASE 7:
+Podcasts
+Podcast purchases
+Player
+Transcript
+
+PHASE 8:
+XP
+Activities
+Vocabulary
+Questions
+Progress
+
+PHASE 9:
+Teacher payments
+Notifications
+Reviews
+
+PHASE 10:
+Admin panel
+Analytics
+Security
+Testing
+Optimization
+
+Always finish core functionality before adding advanced features.
+
+==================================================
+46. TESTING
+==================================================
+
+Test critical scenarios.
+
+STUDENT:
+
+- Register
+- Login
+- Buy package
+- Receive minutes
+- Search teacher
+- Book lesson
+- Start call
+- End call
+- Exact minute deduction
+- Insufficient balance
+- Reconnection
+- Buy podcast
+
+TEACHER:
+
+- Register
+- Apply
+- Upload certificate
+- Admin approval
+- Go online
+- Receive call
+- Accept
+- Teach
+- Teaching time recorded
+- Request payment
+- Time frozen correctly
+- Continue accumulating new time
+
+PARENT:
+
+- Create child
+- Calculate age
+- Purchase
+- Book lesson
+- View progress
+
+SECURITY:
+
+- Student cannot access admin
+- Teacher cannot access admin
+- Student cannot modify minutes
+- Teacher cannot modify teaching time
+- Teacher cannot modify student price
+- Child cannot make financial actions
+
+==================================================
+47. FINAL UI GOAL
+==================================================
+
+The final website must visually communicate:
+
+"A friendly place where people learn languages by actually speaking."
+
+The design should combine:
+
+- Myna Lingo mascot
+- Yellow/orange identity
+- Rounded UI
+- White/cream surfaces
+- Friendly illustrations
+- Arabic RTL
+- English LTR
+- Mobile-first design
+- Simple user experience
+
+Do not clone the reference screenshots.
+
+Use them as design inspiration and create an original professional interface.
+
+==================================================
+48. FINAL DEVELOPMENT RULE
+==================================================
+
+Before making major code changes:
+
+1. Audit the existing project.
+2. Explain what will be preserved.
+3. Explain what needs to be changed.
+4. Explain what needs to be added.
+5. Identify database changes.
+6. Identify route changes.
+7. Identify component changes.
+8. Then implement systematically.
+
+Do not rewrite working code without a reason.
+
+Do not create fake functionality for critical features.
+
+Do not hide incomplete functionality behind UI.
+
+Build real server-backed functionality wherever the MVP requires it.
+
+==================================================
+49. FINAL RESULT
+==================================================
+
+The final result should be a polished Mynalingo MVP built ON TOP OF THE EXISTING PROJECT.
+
+It should contain:
+
+- Professional responsive UI
+- Arabic + English
+- Student system
+- Parent system
+- Teacher system
+- Admin system
+- Teacher applications
+- Teacher approval
+- Teacher search
+- Bookings
+- Student minute packages
+- Server-authoritative call timing
+- Agora architecture
+- Teacher teaching-time tracking
+- Podcast system
+- Learning system
+- Payments architecture
+- Notifications
+- PostgreSQL database
+- Prisma
+- Secure role permissions
+
+Most importantly:
+
+DO NOT BUILD A STATIC DEMO.
+
+BUILD THE FOUNDATION OF A REAL PRODUCT.
