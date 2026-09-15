@@ -4,11 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "export NODE_ENV=development && pnpm run build && pnpm run start",
-    "build": "node ./build.mjs",
-    "start": "node --enable-source-maps ./dist/index.mjs",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
-  },
+  "build": "node ./build.mjs",
+  "start": "cross-env PORT=3001 BASE_PATH=/ node --enable-source-maps ./dist/index.mjs",
+  "dev": "cross-env NODE_ENV=development DATABASE_URL=postgresql://postgres:aminapc5@localhost:5432/myna_lingo pnpm run build && pnpm run start",
+  "push": "drizzle-kit push --config ./drizzle.config.ts"
+},
   "dependencies": {
     "@clerk/express": "^2.1.67",
     "@clerk/shared": "^4.31.1",
